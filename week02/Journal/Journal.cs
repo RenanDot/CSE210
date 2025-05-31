@@ -23,7 +23,7 @@ public class Journal
 
         foreach (var entry in _entries)
         {
-            Console.WriteLine($"Date: {entry._date} - Prompt: {entry._prompt} - Entry: {entry._entryText}");
+            entry.DisplayEntry(entry);
         }
     }
 
