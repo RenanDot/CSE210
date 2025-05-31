@@ -1,8 +1,11 @@
+// Program written by Renan Daniel de Campos
+// As part of the exceed requirements I have added a mood selection feature, where you can chose a mood to change the questions that are asked in the journal prompts. 
+
 using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main(string[] args) 
     {
         Journal journal = new Journal();
         Entry entry = new Entry();
@@ -13,7 +16,7 @@ class Program
 
         Console.WriteLine("Please select your mood today:");
         Console.WriteLine("1. Happy / Content");
-        Console.WriteLine("2. Sad / Down");   
+        Console.WriteLine("2. Sad / Down");
         Console.WriteLine("3. Angry / Frustrated");
         Console.WriteLine("4. Anxious / Stressed");
         Console.WriteLine("5. Hopeful / Motivated");
