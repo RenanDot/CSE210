@@ -15,7 +15,7 @@ public class Reference
         _book = book;
         _chapter = chapter;
         _verse = verse;
-        _endVerse = verse; // Default end verse is the same as start verse
+        _endVerse = verse;
     }
 
     public Reference(string book, int chapter, int verse, int endVerse)

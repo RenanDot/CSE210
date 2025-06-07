@@ -61,9 +61,9 @@ public class Scripture
         {
             if (!word.IsHidden())
             {
-                return false; // Found a word that is not hidden
+                return false;
             }
         }
-        return true; // All words are hidden
+        return true;
     }
 }
