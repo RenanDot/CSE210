@@ -1,5 +1,11 @@
 using System;
 
+/* 
+    Program written by Renan Daniel de Campos, to exceed the requirements 
+    for this assignment, I added a menu to select between a predefined scripture 
+    or entering your own. When entering your own scripture, you can specify the 
+    book, chapter, start verse, end verse (optional), and the text of the scripture.    
+*/
 class Program
 {
     static void Main(string[] args)
@@ -11,7 +17,7 @@ class Program
         Console.WriteLine("2. Enter your own scripture");
 
         string choice = Console.ReadLine();
-        
+
         Scripture scripture;
 
         if (choice == "2")
