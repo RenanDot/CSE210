@@ -1,3 +1,11 @@
+/*
+    Code written by Renan Daniel de Campos
+    To exceed the requirements, I added a counter for each activity. Also, 
+    I created new animations for the program, such as a spinner and a progress bar. 
+    The progress bar is very useful in the breathing activity. I also 
+    created a way where the questions in the Reflecting Activity are not repeated
+    until all questions have been used. 
+*/
 using System;
 
 class Program
