@@ -21,12 +21,16 @@ public class Activity
         Console.WriteLine(_description);
         Console.WriteLine();
         Console.WriteLine("How long, in seconds, would you like to do this activity? (Enter a number)");
-        string _duration = Console.ReadLine();
+        _duration = int.Parse(Console.ReadLine());
     }
 
     public void DisplayEndingMessage()
     {
-
+        Console.WriteLine($"Well done!");
+        ShowSpinner(2);
+        Console.WriteLine($"You have completed the {_name} for {_duration} seconds.");
+        ShowSpinner(5);
+        Console.Clear();
     }
 
     public void ShowSpinner(int seconds)
@@ -55,15 +59,51 @@ public class Activity
 
         Console.WriteLine();
     }
+
+    public void ShowSpinerVariation(int seconds)
+    {
+        DateTime endTime = DateTime.Now.AddSeconds(seconds);
+
+        List<string> spinnerFrames = new List<string> { "[    ]", "[=   ]", "[==  ]", "[=== ]", "[ ===]", "[  ==]", "[   =]" };
+
+        int i = 0;
+
+        while (DateTime.Now < endTime)
+        {
+            Console.Write($"{spinnerFrames[i % spinnerFrames.Count]}");
+            Thread.Sleep(500);
+            Console.Write("\b\b\b\b\b\b");
+            i++;
+
+        }
+
+        Console.Write("         \n");
+    }
     
     public void ShowCountdown(int seconds)
     {
         for (int i = seconds; i > 0; i--)
         {
-            Console.WriteLine($"Starting in {i} seconds...");
+            Console.Write(i);
             System.Threading.Thread.Sleep(1000);
+            Console.Write("\b \b");
         }
     }
 
-    
+    public void ProgressBar(int total, int delay)
+    {
+        total--; 
+
+        for (int i = 0; i <= total; i++)
+        {
+            Console.Write("\r[");
+            Console.Write(new string('#', i));
+            Console.Write(new string(' ', total - i));
+            Console.Write($"] {i} seconds");
+            Thread.Sleep(delay);
+        }
+
+        Console.SetCursorPosition(0, Console.CursorTop);
+        Console.WriteLine("Completed!                                 ");
+    }
 }

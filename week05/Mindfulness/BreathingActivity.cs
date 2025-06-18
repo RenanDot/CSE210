@@ -3,7 +3,7 @@ using System;
 public class BreathingActivity : Activity
 {
 
-    public BreathingActivity() : base("Breathing Activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.")
+    public BreathingActivity() : base("Breathing Activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing")
     {
         
     }
@@ -12,13 +12,27 @@ public class BreathingActivity : Activity
     {
         DisplayStartingMessage();
 
+        Console.Clear();
+
         Console.WriteLine("Get ready...");
-        ShowSpinner(5);
+        ShowSpinner(3);
 
-        Console.WriteLine("Breath in...");
-        ShowCountdown(4);
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
-        Console.WriteLine("Now breath out...");
-        ShowCountdown(6);
+        while (DateTime.Now < endTime)
+        {
+
+            Console.Write("Breath in...");
+            Console.WriteLine();
+            ProgressBar(4, 1000);
+
+            Console.Write("Now breath out...");
+            Console.WriteLine();
+            ProgressBar(6, 1000);
+
+            Console.WriteLine();
+        }
+
+        DisplayEndingMessage();
     }
 }
