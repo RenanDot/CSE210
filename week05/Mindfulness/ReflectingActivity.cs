@@ -25,6 +25,8 @@ public class ReflectingActivity : Activity
         "How can you keep this experience in mind in the future?"
     };
 
+    private List<string> _usedQuestions = new List<string>();
+
     public ReflectingActivity() : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
     }
@@ -82,6 +84,13 @@ public class ReflectingActivity : Activity
         string question = GetRandomQuestion();
         Console.Write($"> {question} ");
         ShowSpinerVariation(13);
-        _questions.Remove(question); // Remove the question to avoid repetition
+        _usedQuestions.Add(question); 
+        _questions.Remove(question); 
+
+        if (_questions.Count == 0)
+        {   
+            _questions = new List<string>(_usedQuestions); 
+            _usedQuestions.Clear(); 
+        }
     }
 }

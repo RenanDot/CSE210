@@ -28,7 +28,7 @@ public class BreathingActivity : Activity
 
             Console.Write("Now breath out...");
             Console.WriteLine();
-            ProgressBar(6, 1000);
+            InverseProgressBar(6, 1000);
 
             Console.WriteLine();
         }

@@ -29,7 +29,7 @@ public class Activity
         Console.WriteLine($"Well done!");
         ShowSpinner(2);
         Console.WriteLine($"You have completed the {_name} for {_duration} seconds.");
-        ShowSpinner(5);
+        ShowSpinner(4);
         Console.Clear();
     }
 
@@ -79,7 +79,7 @@ public class Activity
 
         Console.Write("         \n");
     }
-    
+
     public void ShowCountdown(int seconds)
     {
         for (int i = seconds; i > 0; i--)
@@ -92,14 +92,31 @@ public class Activity
 
     public void ProgressBar(int total, int delay)
     {
-        total--; 
+        total--;
 
         for (int i = 0; i <= total; i++)
         {
             Console.Write("\r[");
             Console.Write(new string('#', i));
             Console.Write(new string(' ', total - i));
-            Console.Write($"] {i} seconds");
+            Console.Write($"] {total-i} seconds");
+            Thread.Sleep(delay);
+        }
+
+        Console.SetCursorPosition(0, Console.CursorTop);
+        Console.WriteLine("Completed!                                 ");
+    }
+    
+    public void InverseProgressBar(int total, int delay)
+    {
+        total--; 
+
+        for (int i = 0; i <= total; i++)
+        {
+            Console.Write("\r[");
+            Console.Write(new string('#', total - i));
+            Console.Write(new string(' ', i));
+            Console.Write($"] {total-i} seconds");
             Thread.Sleep(delay);
         }
 
