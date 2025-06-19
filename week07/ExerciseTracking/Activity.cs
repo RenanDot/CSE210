@@ -27,5 +27,8 @@ public abstract class Activity
 
     public abstract double GetPace();
 
-    public abstract string GetSummary();
+    public virtual string GetSummary()
+    {
+        return $"{GetDate()} Activity ({GetLength()} min) - Distance: {GetDistance():F1} km, Speed: {GetSpeed():F1} kph, Pace: {GetPace():F2} min per km";
+    }
 }
